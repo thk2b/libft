@@ -2,7 +2,10 @@ NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_memset.c\
+SRCDIR = srcs
+INCLUDEDIR = includes
+SRCS = $(addprefix $(SRCDIR)/,\
+	ft_memset.c\
 	ft_bzero.c\
 	ft_memcpy.c\
 	ft_memccpy.c\
@@ -72,11 +75,12 @@ SRCS = ft_memset.c\
 	ft_btree_backpreorder.c\
 	ft_btree_backinorder.c\
 	ft_btree_backpostorder.c\
+)
 
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	gcc $(FLAGS) -c $< -o $@
+	gcc -I$(INCLUDEDIR) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
