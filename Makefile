@@ -75,6 +75,7 @@ SRCS = $(addprefix $(SRCDIR)/,\
 	ft_btree_backpreorder.c\
 	ft_btree_backinorder.c\
 	ft_btree_backpostorder.c\
+	get_next_line.c\
 )
 
 OBJS = $(SRCS:.c=.o)
