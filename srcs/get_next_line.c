@@ -6,91 +6,63 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 22:41:11 by tkobb             #+#    #+#             */
-/*   Updated: 2018/09/29 20:30:09 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/09/30 00:07:16 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft.h"
-#include <unistd.h>
+#include "libft/includes/libft.h"
 
-static t_buff	*buff_new(void)
+int		next_line(int fd, char **line, char **nl, char **tmp)
 {
-	t_buff	*b;
+	char		*tmp1;
+	ssize_t		nread;
+	char		buf[BUFF_SIZE + 1];
 
-	if ((b = (t_buff*)malloc(sizeof(t_buff))) == NULL)
-		return (NULL);
-	b->cur = NULL;
-	if ((b->start = (char*)malloc(BUFF_SIZE + 1)) == NULL)
-		return (NULL);
-	b->cur = b->start;
-	ft_bzero(b->start, BUFF_SIZE + 1);
-	return (b);
-}
-
-static int		copy_line(t_buff *data, char *end, char **dst)
-{
-	char	*del;
-
-	*end = '\0';
-	del = *dst;
-	ALLOC_CHECK(*dst = ft_strjoin(*dst, data->cur));
-	free(del);
-	data->cur = end + 1;
-	return (1);
-}
-
-static int		end(t_buff *data, char **line)
-{
-	int	status;
-
-	status = copy_line(data, data->start + BUFF_SIZE, line);
-	data->cur = NULL;
-	free(data->start);
-	free(data);
-	return (status);
-}
-
-static int		next_line(int fd, t_buff *data, char **line)
-{
-	char	*nl;
-	char	*del;
-	size_t	nread;
-
-	nread = 0;
-	while ((nl = ft_strchr(data->cur, '\n')) == NULL)
+	while ((*nl = ft_strchr(*tmp, '\n')) == NULL)
 	{
-		if (nread > 0 && nread != BUFF_SIZE)
-			return (end(data, line));
-		if (data->cur != data->start || nread == BUFF_SIZE)
+		ft_bzero(buf, BUFF_SIZE + 1);
+		if ((nread = read(fd, buf, BUFF_SIZE)) == -1)
+			return (-1);
+		if (nread == 0)
 		{
-			del = *line;
-			*line = ft_strjoin(*line, data->cur);
-			free(del);
-			ft_bzero(data->start, BUFF_SIZE);
+			if (**tmp == '\0')
+				return (0);
+			*line = ft_strdup((*tmp));
+			**tmp = '\0';
+			return (1);
 		}
-		nread = read(fd, data->start, BUFF_SIZE);
-		if (nread == 0 && **line != '\0')
-			return (end(data, line));
-		data->cur = data->start;
-		if (nread < 1)
-			return (nread);
+		tmp1 = *tmp;
+		*tmp = ft_strjoin(*tmp, buf);
+		free(tmp1);
 	}
-	return (copy_line(data, nl, line));
+	return (2);
 }
 
-int				get_next_line(int fd, char **line)
+int		get_next_line(int fd, char **line)
 {
-	static t_buff	*data[MAX_FD] = {NULL};
+	static char	*data[MAX_FD] = {0};
+	char		*nl;
+	char		*tmp;
+	int			ret;
 
-	if (fd < 0 || line == NULL || read(fd, NULL, 0) < 0)
+	if (line == NULL || fd < 0 || read(fd, NULL, 0) < 0)
 		return (-1);
-	if (data[fd] == NULL)
+	if (data[fd] && (nl = ft_strchr(data[fd], '\n')))
 	{
-		ALLOC_CHECK(data[fd] = buff_new());
+		*nl = '\0';
+		*line = data[fd];
+		data[fd] = ft_strdup(nl + 1);
+		return (1);
 	}
-	else if (data[fd]->cur == NULL)
-		return (0);
-	ALLOC_CHECK(*line = ft_strdup(""));
-	return (next_line(fd, data[fd], line));
+	tmp = data[fd];
+	if (tmp == NULL)
+		ALLOC_CHECK(tmp = ft_strdup(""));
+	if ((ret = next_line(fd, line, &nl, &tmp)) != 2)
+		return (ret);
+	*nl = '\0';
+	*line = ft_strdup(tmp);
+	data[fd] = ft_strdup(nl + 1);
+	free(tmp);
+	return (1);
 }
