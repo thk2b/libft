@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 22:41:11 by tkobb             #+#    #+#             */
-/*   Updated: 2018/09/22 22:05:13 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/09/29 20:30:09 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int		next_line(int fd, t_buff *data, char **line)
 
 int				get_next_line(int fd, char **line)
 {
-	static t_buff	*data[255] = {NULL};
+	static t_buff	*data[MAX_FD] = {NULL};
 
 	if (fd < 0 || line == NULL || read(fd, NULL, 0) < 0)
 		return (-1);
