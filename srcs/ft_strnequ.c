@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 10:53:02 by tkobb             #+#    #+#             */
-/*   Updated: 2018/09/22 14:55:44 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/13 22:51:41 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int		ft_strnequ(const char *s, const char *t, size_t len)
 		t++;
 		len--;
 	}
-	return (len ? *s == *t : 1);
+	return (*s == *t);
 }
