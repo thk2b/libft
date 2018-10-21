@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/14 21:00:30 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 00:46:51 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/21 14:19:47 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,13 @@ static char		**alloc_splits(const char *s, char c, const char *escape)
 	return ((char**)malloc(count * sizeof(char**)));
 }
 
-char			**ft_strsplit_escape(const char *s, char c, const char *escape)
+void			split(const char *s, char **strv, char c, const char *escape)
 {
 	const char	*t;
 	const char	*e;
-	char		**strv;
 	size_t		i;
 
 	i = 0;
-	if ((strv = alloc_splits(s, c, escape)) == NULL)
-		return (NULL);
 	while (s && *s)
 	{
 		if ((e = ft_strchr(escape, *s)) && ++s)
@@ -83,15 +80,14 @@ char			**ft_strsplit_escape(const char *s, char c, const char *escape)
 		s = t;
 	}
 	strv[i] = NULL;
-	return (strv);
 }
 
-#include <printf.h>
-int main(void)
+char			**ft_strsplit_escape(const char *s, char c, const char *escape)
 {
-	char **strv = ft_strsplit_escape(" .  abc \"def   ghi\" . jkl .   ", ' ', "\"");
-	for(int i = 0; strv[i]; i++)
-	{
-		printf("%s\n", strv[i]);
-	}
+	char		**strv;
+
+	if ((strv = alloc_splits(s, c, escape)) == NULL)
+		return (NULL);
+	split(s, strv, c, escape);
+	return (strv);
 }
