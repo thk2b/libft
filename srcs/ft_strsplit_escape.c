@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/14 21:00:30 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/20 18:47:55 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/21 00:46:51 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ static char		**alloc_splits(const char *s, char c, const char *escape)
 				count++;
 			escaping = !escaping;
 		}
-		else if (escaping)
-			;
-		else if (*s == c && *s && s[1] != c)
+		else if (!escaping && *s == c && *s && s[1] != c)
 			count++;
 		s++;
 	}
@@ -63,18 +61,15 @@ char			**ft_strsplit_escape(const char *s, char c, const char *escape)
 	char		**strv;
 	size_t		i;
 
-	t = s;
 	i = 0;
 	if ((strv = alloc_splits(s, c, escape)) == NULL)
 		return (NULL);
 	while (s && *s)
 	{
-		if ((e = ft_strchr(escape, *s)))
+		if ((e = ft_strchr(escape, *s)) && ++s)
 		{
-			if ((t = ft_strchr(++s, *e)) == NULL)
-				strv[i++] = alloc_str(s, s + ft_strlen(s));
-			else
-				strv[i++] = alloc_str(s, t++);
+			t = ft_strchr(s, (int)*e);
+			strv[i++] = alloc_str(s, t ? t++ : s + ft_strlen(s));
 		}
 		else if ((t = ft_strchr(s, (int)c)) == NULL)
 			strv[i++] = alloc_str(s, s + ft_strlen(s));
@@ -89,4 +84,14 @@ char			**ft_strsplit_escape(const char *s, char c, const char *escape)
 	}
 	strv[i] = NULL;
 	return (strv);
+}
+
+#include <printf.h>
+int main(void)
+{
+	char **strv = ft_strsplit_escape(" .  abc \"def   ghi\" . jkl .   ", ' ', "\"");
+	for(int i = 0; strv[i]; i++)
+	{
+		printf("%s\n", strv[i]);
+	}
 }
