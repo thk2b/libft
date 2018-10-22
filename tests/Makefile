@@ -14,9 +14,9 @@ INCLUDES = -I ../includes/
 all: $(NAME)
 
 $(LIBFT):
-	make -C $(LIBFT)
+	make -C ../
 
-$(NAME): $(OBJS) $(LIBFT) $(LIBFT_SRCS)
+$(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(OBJS) -o $(NAME)
 
 %.o: %.c 
@@ -29,3 +29,5 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C ../
+
+re: fclean all
