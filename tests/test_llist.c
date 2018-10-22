@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:02:37 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:06:55 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:07:53 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static void	test0(void)
 	free(strv);
 }
 
-#include <printf.h>
 static void	test1(void)
 {
 	t_llist	*head;
