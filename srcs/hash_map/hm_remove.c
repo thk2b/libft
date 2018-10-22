@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 21:48:20 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 22:21:40 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:51:35 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	del_item(void *v_item)
 	free(v_item);
 }
 
-void	*hm_remove(t_hm	*hm, const char *key)
+void		*hm_remove(t_hm *hm, const char *key)
 {
 	int				index;
 	t_llist			*item_container;

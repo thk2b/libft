@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hash_ascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:14:44 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:41:53 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/22 00:21:55 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/22 00:27:05 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "hash_map.h"
+#include "libft.h"
 
-int	main(void)
+int		hash_ascii(const char *str)
 {
-	test_llist();
-	test_hm();
+	int		hash;
+	int		len;
+	int		i;
+
+	i = 0;
+	len = ft_strlen(str);
+	while (str[i])
+	{
+		hash = (hash * (len - i + 1) * str[i]);
+		i++;
+	}
+	return (hash);
 }

@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 22:27:52 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 23:40:28 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:50:49 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		llist_push(t_llist **head, void *data)
 	MCK(node = llist_new_node(data), 1);
 	if (*head == NULL)
 	{
-		MCK(*head = llist_new(), 1); 
+		MCK(*head = llist_new(), 1);
 		(*head)->first = node;
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:02:37 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:07:53 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:48:56 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	cmp(void *ctx, void *data)
 }
 
 int			g_delcount = 0;
+
 static void	del(void *data)
 {
 	(void)data;

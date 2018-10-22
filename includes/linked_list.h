@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:46:42 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 22:30:49 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:48:19 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int				llist_push(t_llist **head, void *data);
 int				llist_pop(t_llist *head, void *data);
 int				llist_shift(t_llist **head, void *data);
 int				llist_unshift(t_llist *head, void *data);
-t_llist_node	*llist_find(t_llist *head, void *ctx, t_llist_cmp_fn cmp);
-int				llist_remove(t_llist *head, void *ctx, t_llist_cmp_fn cmp, t_llist_del_fn del);
+t_llist_node	*llist_find(t_llist *head, void *ctx,
+	t_llist_cmp_fn cmp);
+int				llist_remove(t_llist *head, void *ctx,
+	t_llist_cmp_fn cmp, t_llist_del_fn del);
 
 #endif

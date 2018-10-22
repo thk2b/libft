@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 21:20:40 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 22:37:38 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:51:05 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		hm_insert(t_hm *hm, const char *key, void *value)
 	t_hm_item	*item;
 
 	VALIDATE_HASH(index = hm->hash_fn(key), 1);
-	item_container = hm->keys + index;
+	item_container = hm->keys + index % hm->arr_size;
 	MCK(item = hm_new_item(key, value), 1);
 	llist_push(&item_container, (void*)item);
 	return (0);

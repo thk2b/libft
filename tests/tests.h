@@ -6,8 +6,14 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:02:17 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 23:14:26 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:47:07 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef TESTS_H
+# define TESTS_H
+
 void	test_llist(void);
+void	test_hm(void);
+
+#endif

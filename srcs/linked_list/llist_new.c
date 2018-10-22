@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 22:22:44 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 23:35:22 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:49:38 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-t_llist			*llist_new()
+t_llist			*llist_new(void)
 {
 	t_llist	*head;
 

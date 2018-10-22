@@ -4,6 +4,7 @@ LIBFT = ../libft.a
 LIBFT_SRCS = ../srcs
 SRCS =\
 	test_llist.c\
+	test_hm.c\
 	main.c
 OBJS = $(SRCS:.c=.o)
 
@@ -19,7 +20,7 @@ $(LIBFT):
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(OBJS) -o $(NAME)
 
-%.o: %.c 
+%.o: %.c
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:

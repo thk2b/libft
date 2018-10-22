@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 21:34:12 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 22:15:20 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 00:51:54 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	cmp_item(void *v_key, void *v_item)
 {
-	const char *key;
+	const char	*key;
 	t_hm_item	*item;
 
 	key = (const char *)v_key;
@@ -34,5 +34,5 @@ void		*hm_find(t_hm *hm, const char *key)
 	item_container = hm->keys + index;
 	MCK(node = llist_find(item_container, key, cmp_item), NULL);
 	item = (t_hm_item*)node->data;
-	return item ? item->value : NULL;
+	return (item ? item->value : NULL);
 }
