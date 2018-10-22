@@ -6,12 +6,13 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 22:27:52 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:50:49 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 01:17:26 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 #include "libft.h"
+#include <printf.h>
 
 int		llist_push(t_llist **head, void *data)
 {
