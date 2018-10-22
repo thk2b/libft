@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:42:40 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 01:16:28 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 01:21:05 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_hm		*hm_new(size_t arr_size, t_hm_hash_fn hash_fn)
 
 	MCK(hm = (t_hm*)malloc(sizeof(t_hm)), NULL);
 	hm->arr_size = arr_size;
-	MCK(hm->keys = (t_llist*)ft_memalloc(sizeof(t_llist) * arr_size), NULL);
+	MCK(hm->keys = (t_llist**)ft_memalloc(sizeof(t_llist*) * arr_size), NULL);
 
 	hm->hash_fn = hash_fn ? hash_fn : hash_ascii;
 	return (hm);

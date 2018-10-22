@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 22:46:13 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:06:33 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 01:34:39 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		llist_remove(t_llist *head, void *ctx,
 			else
 				prev->next = next;
 			del(node);
+			head->len--;
 			return (0);
 		}
 		else

@@ -6,7 +6,7 @@ SRCDIR = srcs
 INCLUDEDIR = includes
 
 LINKED_LIST_SRCS = $(addprefix linked_list/, llist_new.c llist_free.c llist_push.c llist_shift.c llist_find.c llist_remove.c)
-HASH_MAP_SRCS = $(addprefix hash_map/, hash_ascii.c hm_new.c hm_free.c hm_insert.c hm_new.c hm_remove.c)
+HASH_MAP_SRCS = $(addprefix hash_map/, hash_ascii.c hm_new.c hm_find.c hm_free.c hm_insert.c hm_new.c hm_remove.c)
 SRCS = $(addprefix $(SRCDIR)/,\
 	$(LINKED_LIST_SRCS)\
 	$(HASH_MAP_SRCS)\

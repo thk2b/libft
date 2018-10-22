@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:42:13 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 01:14:06 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 01:25:48 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef int		(*t_hm_hash_fn)(const char *key);
 typedef struct	s_hm
 {
 	size_t			arr_size;
-	t_llist			*keys;
+	t_llist			**keys;
 	t_hm_hash_fn	hash_fn;
 }				t_hm;
 
