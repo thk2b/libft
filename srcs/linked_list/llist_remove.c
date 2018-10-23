@@ -6,13 +6,19 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 22:46:13 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 18:25:21 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 18:28:50 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 
-int		llist_remove(t_llist *head, void *ctx,
+static void	next(t_llist_node *nodes[3])
+{
+	nodes[0] = nodes[1];
+	nodes[1] = nodes[1]->next;
+}
+
+int			llist_remove(t_llist *head, void *ctx,
 	t_llist_cmp_fn cmp, t_llist_del_fn del)
 {
 	t_llist_node	*nodes[3];
@@ -35,10 +41,7 @@ int		llist_remove(t_llist *head, void *ctx,
 			return (0);
 		}
 		else
-		{
-			nodes[0] = nodes[1];
-			nodes[1] = nodes[1]->next;
-		}
+			next(nodes);
 	}
 	return (1);
 }

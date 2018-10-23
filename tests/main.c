@@ -6,14 +6,17 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:14:44 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:41:53 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 18:21:08 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
+#include "libft.h"
 
 int	main(void)
 {
+	ft_putendl("llist");
 	test_llist();
+	ft_putendl("hm");
 	test_hm();
 }

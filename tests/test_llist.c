@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:02:37 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:48:56 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 18:37:09 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,6 @@ static void	test1(void)
 
 	head = NULL;
 	strv = ft_strsplit("abc def ghi jkl mno", ' ');
-	llist_shift(&head, strv[0]);
-	llist_shift(&head, strv[1]);
-	llist_shift(&head, strv[2]);
-	assert(head->len == 3);
-	llist_remove(head, "ghi", cmp, del);
-	assert(g_delcount == 1);
-	assert(ft_strcmp(head->first->data, strv[1]) == 0);
-	assert(ft_strcmp(head->first->next->data, strv[0]) == 0);
-	free(strv);
-}
-
-static void	test2(void)
-{
-	t_llist	*head;
-	char	**strv;
-
-	head = NULL;
-	strv = ft_strsplit("abc def ghi jkl mno", ' ');
 	llist_push(&head, strv[0]);
 	llist_push(&head, strv[1]);
 	llist_push(&head, strv[2]);
@@ -84,6 +66,9 @@ static void	test2(void)
 		strv[0]) == 0);
 	assert(ft_strcmp(head->first->next->next->next->next->data,
 		strv[2]) == 0);
+	llist_remove(head, "abc", cmp, del);
+	assert(head->first->next->next->data == strv[1]);
+	assert(g_delcount == 1);
 	free(strv);
 }
 
@@ -91,5 +76,4 @@ void		test_llist(void)
 {
 	test0();
 	test1();
-	test2();
 }
