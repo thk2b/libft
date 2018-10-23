@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 23:36:39 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 23:58:19 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/23 00:01:27 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	test1(void)
 	free(strv);
 }
 
-void	test_pq(void)
+void		test_pq(void)
 {
 	test0();
 	test1();

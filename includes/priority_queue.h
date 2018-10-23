@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 18:49:23 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 23:54:38 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/23 00:00:57 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ typedef struct	s_pq
 
 typedef void	(*t_pq_del_fn)(void *data);
 
-typedef enum	e_pq_sort { PQS_DESC, PQS_ASC }
-	t_pq_sort;
+typedef enum	e_pq_sort
+{	PQS_DESC,
+	PQS_ASC
+}				t_pq_sort;
 
 t_pq			*pq_new(void *data, int value);
 void			pq_free(t_pq *pq, t_pq_del_fn del);
