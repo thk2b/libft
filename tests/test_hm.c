@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 00:28:08 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 20:32:37 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 21:59:23 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	test1(void)
 	assert(hm_find(hm, "123") == strv[0]);
 	assert(hm_find(hm, "") == NULL);
 	assert(hm_find(hm, "3345") == strv[2]);
+	hm_remove(hm, "223");
+	assert(hm_find(hm, "223") == NULL);
 }
 
 void		test_hm(void)

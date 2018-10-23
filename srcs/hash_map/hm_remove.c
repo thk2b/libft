@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 21:48:20 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 01:21:39 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 22:04:59 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	cmp_item(void *v_key, void *v_data)
 
 	key = (const char *)v_key;
 	item = (t_hm_item*)v_data;
-	return (ft_strcmp(key, item->key));
+	return (ft_strcmp(key, item->key) == 0);
 }
 
 static void	del_item(void *v_item)
