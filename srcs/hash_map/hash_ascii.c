@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 00:21:55 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 00:27:05 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 19:48:12 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		hash_ascii(const char *str)
 
 	i = 0;
 	len = ft_strlen(str);
+	hash = 1;
 	while (str[i])
 	{
 		hash = (hash * (len - i + 1) * str[i]);

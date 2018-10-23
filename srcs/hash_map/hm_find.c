@@ -6,11 +6,12 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 21:34:12 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 01:36:00 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 20:30:47 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hash_map.h"
+#include "linked_list.h"
 #include "libft.h"
 
 static int	cmp_item(void *v_key, void *v_item)
@@ -20,7 +21,7 @@ static int	cmp_item(void *v_key, void *v_item)
 
 	key = (const char *)v_key;
 	item = (t_hm_item*)v_item;
-	return (ft_strcmp(key, item->key));
+	return (ft_strcmp(key, item->key) == 0);
 }
 
 void		*hm_find(t_hm *hm, const char *key)

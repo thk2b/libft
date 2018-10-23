@@ -18,7 +18,7 @@ $(LIBFT):
 	make -C ../
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(OBJS) -o $(NAME) -g
 
 %.o: %.c
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@

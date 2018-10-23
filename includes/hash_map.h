@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 20:42:13 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 18:20:18 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/22 19:51:15 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "linked_list.h"
 # include <stdlib.h>
 
-# define VALIDATE_HASH(i, r) if((i) < 0 || (i) > (int)hm->arr_size) return (r)
+# define VALIDATE_HASH(i, r) if((i) < 0) return (r)
 
 typedef int		(*t_hm_hash_fn)(const char *key);
 
