@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pq_pop.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:14:44 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 23:36:20 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/22 23:34:02 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/22 23:56:30 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
-#include "libft.h"
+#include "priority_queue.h"
 
-int	main(void)
+void	*pq_pop(t_pq **pq, t_pq_del_fn del)
 {
-	ft_putendl("llist");
-	test_llist();
-	ft_putendl("hm");
-	test_hm();
-	ft_putendl("pq");
-	test_pq();
+	t_pq	*ret;
+	void	*data;
+
+	ret = *pq;
+	if (ret == NULL)
+		return (NULL);
+	*pq = ret->next;
+	data =ret->data;
+	del(ret);
+	return (data);
 }

@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pq_get.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:14:44 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/22 23:36:20 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/22 23:14:29 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/22 23:33:56 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
-#include "libft.h"
+#include "priority_queue.h"
 
-int	main(void)
+void	*pq_get(t_pq *pq)
 {
-	ft_putendl("llist");
-	test_llist();
-	ft_putendl("hm");
-	test_hm();
-	ft_putendl("pq");
-	test_pq();
+	return (pq->data);
 }

@@ -5,6 +5,7 @@ LIBFT_SRCS = ../srcs
 SRCS =\
 	test_llist.c\
 	test_hm.c\
+	test_pq.c\
 	main.c
 OBJS = $(SRCS:.c=.o)
 
