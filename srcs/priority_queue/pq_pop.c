@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 23:34:02 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/24 11:48:14 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/24 13:03:54 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void		*pq_pop(t_pq **pq, t_pq_del_fn del)
 		del = default_del;
 	*pq = ret->next;
 	data = ret->data;
-	del(ret);
+	free(ret);
 	return (data);
 }

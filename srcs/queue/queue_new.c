@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   queue_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:02:17 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/24 12:47:48 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/24 12:52:30 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/24 12:54:48 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "queue.h"
+#include "libft.h"
+#include <unistd.h>
 
-void	test_llist(void);
-void	test_hm(void);
-void	test_queue(void);
-void	test_pq(void);
+t_queue_node	*queue_new_node(void *data)
+{
+	t_queue_node	*node;
 
-#endif
+	MCK(node = (t_queue_node*)malloc(sizeof(t_queue_node)), NULL);
+	node->next = NULL;
+	node->data = data;
+	return (node);
+}
+
+t_queue			*queue_new(void)
+{
+	t_queue	*q;
+
+	MCK(q = (t_queue*)malloc(sizeof(t_queue)), NULL);
+	q->first = NULL;
+	q->last = NULL;
+	return (q);
+}

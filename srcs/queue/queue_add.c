@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   queue_add.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:02:17 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/24 12:47:48 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/24 12:59:12 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/24 13:10:30 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "queue.h"
+#include "libft.h"
 
-void	test_llist(void);
-void	test_hm(void);
-void	test_queue(void);
-void	test_pq(void);
+int	queue_add(t_queue **q, void *data)
+{
+	t_queue_node	*node;
 
-#endif
+	MCK(node = queue_new_node(data), 1);
+	node->data = data;
+	if (*q == NULL)
+	{
+		MCK(*q = queue_new(), 1);
+		(*q)->first = node;
+		(*q)->last = node;
+	}
+	else
+	{
+		(*q)->last->next = node;
+		(*q)->last = node;
+	}
+	return (0);
+}

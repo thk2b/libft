@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   queue_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/21 23:02:17 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/24 12:47:48 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/24 12:55:07 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/24 12:58:38 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "queue.h"
+#include <stdlib.h>
 
-void	test_llist(void);
-void	test_hm(void);
-void	test_queue(void);
-void	test_pq(void);
+static void	default_del(void *d)
+{
+	free(d);
+}
 
-#endif
+void		queue_free(t_queue *q, t_queue_del_fn del)
+{
+	t_queue_node *cur;
+	t_queue_node *next;
+
+	if (del == NULL)
+		del = default_del;
+	cur = q->first;
+	while (cur)
+	{
+		next = cur->next;
+		del(cur->data);
+		free(cur);
+		cur = next;
+	}
+}
