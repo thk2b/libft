@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 12:59:12 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/24 13:10:30 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/24 13:24:55 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	queue_add(t_queue **q, void *data)
 	if (*q == NULL)
 	{
 		MCK(*q = queue_new(), 1);
+		(*q)->first = node;
+		(*q)->last = node;
+	}
+	else if ((*q)->first == NULL)
+	{
 		(*q)->first = node;
 		(*q)->last = node;
 	}
