@@ -20,10 +20,10 @@ $(LIBFT):
 	make -C ../
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(OBJS) -o $(NAME) -g
+	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@ -g
+	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
