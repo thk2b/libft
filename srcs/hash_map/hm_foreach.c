@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrv.c                                       :+:      :+:    :+:   */
+/*   hm_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/20 23:01:23 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/26 00:09:28 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/24 21:44:17 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/25 14:53:53 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "hash_map.h"
 
-void	ft_putstrv(char **strv)
+void	hm_foreach(t_hm *hm, void *ctx, t_hm_foreach_fn fn)
 {
-	size_t	i;
+	size_t			i;
+	t_llist			*list;
+	t_llist_node	*node;
+	t_hm_item		*item;
 
 	i = 0;
-	while (strv[i])
-		ft_putendl(strv[i++]);
+	while (i < hm->arr_size)
+	{
+		list = hm->keys[i++];
+		if (list)
+		{
+			node = list->first;
+			while (node)
+			{
+				item = (t_hm_item*)node->data;
+				fn(ctx, item->key, item->value);
+				node = node->next;
+			}
+		}
+	}
 }

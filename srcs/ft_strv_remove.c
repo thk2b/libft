@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/20 23:26:39 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 00:27:37 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/27 11:13:42 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	**ft_strv_remove(char **strv, size_t index)
 	char	**n;
 	size_t	len;
 	size_t	i;
-	int		j;
+	size_t	j;
 
-	len = ft_strv_len((const char **)strv);
+	len = ft_strv_len((char **)strv);
 	if ((n = (char**)malloc(sizeof(char*) * (len - 1))) == NULL)
 		return (NULL);
 	i = 0;

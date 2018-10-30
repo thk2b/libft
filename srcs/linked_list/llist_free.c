@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 22:24:35 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 23:01:24 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/25 15:40:07 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*llist_free(t_llist *head, t_llist_del_fn del)
 	while (node)
 	{
 		next = node->next;
-		del(node);
+		del(node->data);
 		free(node);
 		node = next;
 	}

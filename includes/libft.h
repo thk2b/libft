@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 23:36:48 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/21 00:21:57 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/10/27 00:00:48 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void			*ft_memchr(const void *s, int c, size_t len);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s);
+char			*ft_strndup(const char *s, size_t len);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strcat(char *dst, const char *src);
@@ -35,6 +36,7 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strstr(const char *s, const char *t);
 char			*ft_strnstr(const char *s, const char *t, size_t len);
+char			*ft_str_starts_with(const char *prefix, const char *str);
 int				ft_strcmp(const char *s, const char *t);
 int				ft_strncmp(const char *s, const char *t, size_t len);
 int				ft_atoi(const char *s);
@@ -49,6 +51,7 @@ void			*ft_memalloc(size_t size);
 void			ft_memdel(void **mem);
 char			*ft_strnew(size_t len);
 void			ft_strdel(char **s);
+void			ft_strvdel(char **s);
 void			ft_strclr(char *s);
 void			ft_striter(char *s, void (*f)(char*));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -114,9 +117,10 @@ void			ft_btree_backinorder(t_btree *tree, void *ctx,
 void			ft_btree_backpostorder(t_btree *tree, void *ctx,
 	void (*f)(void*, void*));
 
-void			ft_putstrv(const char **strv);
-size_t			ft_strv_len(const char **strv);
-char			**ft_strv_add(const char **strv, char *str);
+void			ft_putstrv(char **strv);
+size_t			ft_strv_len(char **strv);
+char			**ft_strv_dup(char **strv);
+char			**ft_strv_add(char **strv, char *str);
 char			**ft_strv_remove(char **strv, size_t index);
 
 #endif

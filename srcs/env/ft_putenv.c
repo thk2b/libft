@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrv.c                                       :+:      :+:    :+:   */
+/*   ft_putenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/20 23:01:23 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/26 00:09:28 by tkobb            ###   ########.fr       */
+/*   Created: 2018/10/26 23:29:58 by tkobb             #+#    #+#             */
+/*   Updated: 2018/10/27 12:06:49 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "env.h"
 #include "libft.h"
+#include <unistd.h>
 
-void	ft_putstrv(char **strv)
+int		ft_putenv(char *str)
 {
-	size_t	i;
+	extern char	**environ;
+	char		**new_env;
 
-	i = 0;
-	while (strv[i])
-		ft_putendl(strv[i++]);
+	MCK(new_env = ft_strv_add(environ, str), -1);
+	free(environ);
+	environ = new_env;
+	return (0);
 }
