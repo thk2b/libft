@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:15:41 by theo              #+#    #+#             */
-/*   Updated: 2018/11/08 13:47:36 by theo             ###   ########.fr       */
+/*   Updated: 2018/11/08 15:36:34 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,20 @@
 
 typedef struct	s_stack
 {
-	
+	void			*data;
+	struct s_stack	*next;
 }				t_stack;
 
+typedef void	(*t_stack_del_fn)(void *data);
 typedef int		(*t_stack_cmp_fn)(void *a, void *b);
 
-int				stack_new(t_stack **s);
+int				stack_new_node(void *data);
+void			stack_free(t_stack *s, t_stack_del_fn del);
 int				stack_push(t_stack **s, void *data);
-void			*stack_pop(t_stack *s);
+void			*stack_pop(t_stack **s);
+int				stack_swap(t_stack *s);
+int				stack_rotate(t_stack **s, int by);
+int				stack_rrotate(t_stack **s, int by);
 
 int				stack_is_sorted(t_stack *s, t_stack_cmp_fn fn);
 
