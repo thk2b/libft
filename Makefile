@@ -10,12 +10,14 @@ HASH_MAP_SRCS = $(addprefix hash_map/, hash_ascii.c hm_new.c hm_find.c hm_free.c
 QUEUE_SRCS = $(addprefix queue/, queue_new.c queue_free.c queue_add.c queue_pop.c)
 PRIORITY_QUEUE_SRCS = $(addprefix priority_queue/, pq_new.c pq_free.c pq_add.c pq_get.c pq_pop.c)
 ENV_SRCS = $(addprefix env/, ft_getenv.c ft_setenv.c ft_putenv.c ft_unsetenv.c)
+STACK_SRCS = $(addprefix stack/, )
 SRCS = $(addprefix $(SRCDIR)/,\
 	$(LINKED_LIST_SRCS)\
 	$(HASH_MAP_SRCS)\
 	$(QUEUE_SRCS)\
 	$(PRIORITY_QUEUE_SRCS)\
 	$(ENV_SRCS)\
+	$(STACK_SRCS)\
 	ft_memset.c\
 	ft_bzero.c\
 	ft_memcpy.c\
