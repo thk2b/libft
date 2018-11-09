@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:19:38 by tkobb             #+#    #+#             */
-/*   Updated: 2018/11/08 17:39:29 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/11/08 21:15:44 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		stack_is_sorted(t_stack *s, t_stack_cmp_fn cmp)
 	cur  = s;
 	while (cur->next)
 	{
-		if (cmp(cur->data, cur->next->data) >= 0)
+		if (cmp(cur->data, cur->next->data) > 0)
 			return (0);
 		cur = cur->next;
 	}

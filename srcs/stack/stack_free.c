@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:20:40 by theo              #+#    #+#             */
-/*   Updated: 2018/11/08 15:45:43 by theo             ###   ########.fr       */
+/*   Updated: 2018/11/08 21:19:31 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	stack_free(t_stack *s, t_stack_del_fn del)
 	while (cur)
 	{
 		next = cur->next;
-		del(cur);
+		del(cur->data);
 		free(cur);
 		cur = next;
 	}
