@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   stack_new_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:18:23 by theo              #+#    #+#             */
-/*   Updated: 2018/11/08 15:19:43 by theo             ###   ########.fr       */
+/*   Updated: 2018/11/08 16:28:59 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack.h>
 #include <libft.h>
 
-t_stack		*new_stack_node(void *data)
+t_stack		*stack_new_node(void *data)
 {
 	t_stack	*s;
 

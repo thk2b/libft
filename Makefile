@@ -1,6 +1,6 @@
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 SRCDIR = srcs
 INCLUDEDIR = includes
@@ -10,7 +10,7 @@ HASH_MAP_SRCS = $(addprefix hash_map/, hash_ascii.c hm_new.c hm_find.c hm_free.c
 QUEUE_SRCS = $(addprefix queue/, queue_new.c queue_free.c queue_add.c queue_pop.c)
 PRIORITY_QUEUE_SRCS = $(addprefix priority_queue/, pq_new.c pq_free.c pq_add.c pq_get.c pq_pop.c)
 ENV_SRCS = $(addprefix env/, ft_getenv.c ft_setenv.c ft_putenv.c ft_unsetenv.c)
-STACK_SRCS = $(addprefix stack/, stack_new_node.c stack_free.c stack_push.c stack_pop.c stack_swap.c)
+STACK_SRCS = $(addprefix stack/, stack_new_node.c stack_free.c stack_push.c stack_pop.c stack_swap.c stack_rotate.c stack_rrotate.c stack_is_sorted.c)
 SRCS = $(addprefix $(SRCDIR)/,\
 	$(LINKED_LIST_SRCS)\
 	$(HASH_MAP_SRCS)\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:15:41 by theo              #+#    #+#             */
-/*   Updated: 2018/11/08 15:47:08 by theo             ###   ########.fr       */
+/*   Updated: 2018/11/08 16:05:41 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ void			stack_free(t_stack *s, t_stack_del_fn del);
 int				stack_push(t_stack **s, void *data);
 void			*stack_pop(t_stack **s);
 int				stack_swap(t_stack *s);
-int				stack_rotate(t_stack **s, int by);
-int				stack_rrotate(t_stack **s, int by);
-
+int				stack_rotate(t_stack **s);
+int				stack_rrotate(t_stack **s);
 int				stack_is_sorted(t_stack *s, t_stack_cmp_fn fn);
 
 #endif

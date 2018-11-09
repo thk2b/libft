@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_rotate.c                                     :+:      :+:    :+:   */
+/*   stack_rrotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:37:34 by theo              #+#    #+#             */
-/*   Updated: 2018/11/08 17:37:52 by tkobb            ###   ########.fr       */
+/*   Created: 2018/11/08 16:14:00 by tkobb             #+#    #+#             */
+/*   Updated: 2018/11/08 16:28:14 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack.h>
 
-/*
-**	first element becomes the last
-*/
-
-int		stack_rotate(t_stack **s)
+int		stack_rrotate(t_stack **s)
 {
 	t_stack	*top;
 	t_stack	*bottom;
+	t_stack	*bottom_prev;
 
 	if (*s == NULL || (*s)->next == NULL)
 		return (0);
@@ -27,10 +24,11 @@ int		stack_rotate(t_stack **s)
 	bottom = top;
 	while (bottom->next)
 	{
+		bottom_prev = bottom;
 		bottom = bottom->next;
 	}
+	bottom_prev->next = NULL;
 	bottom->next = top;
-	*s = top->next;
-	top->next = NULL;
+	*s = bottom;
 	return (0);
 }

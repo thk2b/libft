@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_rotate.c                                     :+:      :+:    :+:   */
+/*   stack_is_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:37:34 by theo              #+#    #+#             */
-/*   Updated: 2018/11/08 17:37:52 by tkobb            ###   ########.fr       */
+/*   Created: 2018/11/08 16:19:38 by tkobb             #+#    #+#             */
+/*   Updated: 2018/11/08 17:39:29 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack.h>
 
 /*
-**	first element becomes the last
+**	return 1 if all elements are smaller than the next.
 */
 
-int		stack_rotate(t_stack **s)
+int		stack_is_sorted(t_stack *s, t_stack_cmp_fn cmp)
 {
-	t_stack	*top;
-	t_stack	*bottom;
+	t_stack	*cur;
 
-	if (*s == NULL || (*s)->next == NULL)
-		return (0);
-	top = *s;
-	bottom = top;
-	while (bottom->next)
+	if (s == NULL || s->next == NULL)
+		return (1);
+	cur  = s;
+	while (cur->next)
 	{
-		bottom = bottom->next;
+		if (cmp(cur->data, cur->next->data) >= 0)
+			return (0);
+		cur = cur->next;
 	}
-	bottom->next = top;
-	*s = top->next;
-	top->next = NULL;
-	return (0);
+	return (1);
 }
