@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 22:44:06 by tkobb             #+#    #+#             */
-/*   Updated: 2018/11/11 22:48:58 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/11/12 00:05:54 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int		clist_is_sorted(t_clist *cl, t_clist_cmp_fn cmp)
 {
 	t_clist	*cur;
 
+	if (cl == NULL)
+		return (1);
 	cur = cl;
 	while (cur->next != cl)
 	{
