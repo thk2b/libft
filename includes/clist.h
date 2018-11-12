@@ -32,5 +32,6 @@ int				clist_rotate(t_clist **cl);
 int				clist_rrotate(t_clist **cl);
 int				clist_swap_next(t_clist **cl);
 int				clist_is_sorted(t_clist *clist, t_clist_cmp_fn cmp);
+void			*clist_find(t_clist *clist, void *ctx, t_clist_cmp_fn cmp);
 
 #endif

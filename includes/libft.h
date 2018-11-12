@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 23:36:48 by tkobb             #+#    #+#             */
-/*   Updated: 2018/10/27 00:00:48 by tkobb            ###   ########.fr       */
+/*   Updated: 2018/11/12 00:49:12 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char			*ft_str_starts_with(const char *prefix, const char *str);
 int				ft_strcmp(const char *s, const char *t);
 int				ft_strncmp(const char *s, const char *t, size_t len);
 int				ft_atoi(const char *s);
+int				ft_atoi_validate(int *error, const char *s);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
