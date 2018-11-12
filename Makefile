@@ -11,6 +11,7 @@ QUEUE_SRCS = $(addprefix queue/, queue_new.c queue_free.c queue_add.c queue_pop.
 PRIORITY_QUEUE_SRCS = $(addprefix priority_queue/, pq_new.c pq_free.c pq_add.c pq_get.c pq_pop.c)
 ENV_SRCS = $(addprefix env/, ft_getenv.c ft_setenv.c ft_putenv.c ft_unsetenv.c)
 STACK_SRCS = $(addprefix stack/, stack_new_node.c stack_free.c stack_push.c stack_pop.c stack_swap.c stack_rotate.c stack_rrotate.c stack_is_sorted.c)
+CLIST_SRCS = $(addprefix clist/, clist_new.c clist_free.c clist_push.c clist_pop.c clist_rotate.c clist_rrotate.c clist_swap_next.c clist_is_sorted.c)
 SRCS = $(addprefix $(SRCDIR)/,\
 	$(LINKED_LIST_SRCS)\
 	$(HASH_MAP_SRCS)\
@@ -18,6 +19,7 @@ SRCS = $(addprefix $(SRCDIR)/,\
 	$(PRIORITY_QUEUE_SRCS)\
 	$(ENV_SRCS)\
 	$(STACK_SRCS)\
+	$(CLIST_SRCS)\
 	ft_memset.c\
 	ft_bzero.c\
 	ft_memcpy.c\

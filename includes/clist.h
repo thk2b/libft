@@ -12,6 +12,7 @@
 
 #ifndef CLIST_H
 # define CLIST_H
+# include <libft.h>
 
 typedef struct	s_clist
 {
@@ -29,7 +30,7 @@ int				clist_push(t_clist **cl, void *data);
 void			*clist_pop(t_clist **cl);
 int				clist_rotate(t_clist **cl);
 int				clist_rrotate(t_clist **cl);
-int				clist_swap_nxt(t_clist **cl);
+int				clist_swap_next(t_clist **cl);
 int				clist_is_sorted(t_clist *clist, t_clist_cmp_fn cmp);
 
 #endif
