@@ -49,7 +49,7 @@ int		convert_wstr(char **dst, wchar_t *src, t_directive *d, int is_char)
 		src = L"(null)";
 	srclen = is_char ? 1 : ft_wstrlen(src);
 	srclen = d->precision && srclen > (unsigned)d->precision
-		? d->precision : srclen;
+		? (unsigned)d->precision : srclen;
 	get_len(&len, d, srclen, 0);
 	if ((*dst = (char*)malloc(sizeof(char) * len.total)) == NULL)
 		return (-1);

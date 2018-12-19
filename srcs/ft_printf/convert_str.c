@@ -24,7 +24,7 @@ int	convert_str(char **dst, char *src, t_directive *d, int is_char)
 		src = "(null)";
 	srclen = is_char ? 1 : ft_strlen(src);
 	srclen = d->precision && srclen > (unsigned)d->precision
-		? d->precision : srclen;
+		? (unsigned)d->precision : srclen;
 	get_len(&len, d, srclen, 0);
 	if ((*dst = (char*)malloc(sizeof(char) * len.total)) == NULL)
 		return (-1);

@@ -26,8 +26,6 @@ static unsigned long long	cast_u_arg(va_list ap, t_directive *d)
 		return ((unsigned short)va_arg(ap, int));
 	if (d->length == 'H')
 		return ((unsigned char)va_arg(ap, int));
-	if (d->length == 'j')
-		return ((uintmax_t)va_arg(ap, uintmax_t));
 	if (d->length == 'z')
 		return ((size_t)va_arg(ap, size_t));
 	return (va_arg(ap, unsigned int));
@@ -43,8 +41,6 @@ static long long			cast_s_arg(va_list ap, t_directive *d)
 		return ((short)va_arg(ap, int));
 	if (d->length == 'H')
 		return ((char)va_arg(ap, int));
-	if (d->length == 'j')
-		return ((intmax_t)va_arg(ap, intmax_t));
 	if (d->length == 'z')
 		return ((size_t)va_arg(ap, size_t));
 	return (va_arg(ap, int));
