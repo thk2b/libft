@@ -6,7 +6,7 @@
 /*   By: tkobb <tkobb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 13:03:14 by tkobb             #+#    #+#             */
-/*   Updated: 2018/09/18 14:08:08 by tkobb            ###   ########.fr       */
+/*   Updated: 2019/01/08 17:07:32 by tkobb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strvjoin(const char **sv, const char *sep)
 		return (ft_strdup(*sv));
 	len += ft_strlen(sep) * (i - 1);
 	i = 0;
-	if ((s = (char*)malloc((len + 1) * sizeof(char))) == NULL)
+	if ((s = (char*)ft_memalloc((len + 1) * sizeof(char))) == NULL)
 		return (NULL);
 	while (sv[i])
 	{
